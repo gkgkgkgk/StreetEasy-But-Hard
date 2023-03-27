@@ -10,13 +10,12 @@ import './App.css'
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <div className="App">
-        <Header />
         <Routes>
           <Route path="/" element={<AboutPage />} />
           <Route path="listing" element={<ListingPage />} />
           <Route path="map" element={<MapPage />} />
-
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,9 +1,13 @@
 import React from 'react';
+import InfoCard from '../../components/infocard/infocard';
+import "./styles.css"
 
 function AboutPage() {
     return (
-        <div>
-            <h1>About Page goes here...</h1>
+        <div className='about'>
+            <InfoCard></InfoCard>
+            <InfoCard></InfoCard>
+            <InfoCard></InfoCard>
         </div>
     );
 }
