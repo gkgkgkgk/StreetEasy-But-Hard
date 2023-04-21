@@ -4,6 +4,7 @@ import Header from './components/header/header.jsx'
 import AboutPage from './pages/About/AboutPage'
 import ListingPage from './pages/Listing/ListingPage'
 import MapPage from './pages/Map/MapPage'
+import HomePage from './pages/Home/HomePage.jsx';
 
 import './App.css'
 
@@ -13,7 +14,8 @@ function App() {
       <Header />
       <div className="App">
         <Routes>
-          <Route path="/" element={<AboutPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="listing" element={<ListingPage />} />
           <Route path="map" element={<MapPage />} />
         </Routes>
