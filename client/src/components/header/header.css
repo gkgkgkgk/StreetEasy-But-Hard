@@ -12,14 +12,14 @@
     height: 50px;
 }
 
-ul {
+.navul {
     list-style: none;
     display: flex;
     justify-content: space-between;
     padding: 10px;
 }
 
-li {
+.navli {
     margin: 0 10px;
 }
 
