@@ -4,8 +4,6 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import SearchIcon from "@mui/icons-material/Search";
 
 function Searchbar(props) {
-    const [searchTerm, setSearchTerm] = useState('');
-
     const items = [
         {
           id: 0,
@@ -32,7 +30,6 @@ function Searchbar(props) {
     const formatResult = (item) => {
         return (
           <>
-            {/* <span style={{ display: 'block', textAlign: 'left' }}>id: {item.id}</span> */}
             <span style={{ display: 'block', textAlign: 'left', cursor:'pointer' }}>{item.name}</span>
           </>
         )
