@@ -4,10 +4,11 @@
 
 import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import './MapPage.css'
 
 const containerStyle = {
-  width: '2000px',
-  height: '1000px'
+  width: '500px',
+  height: '100%'
 };
 
 const center = {
@@ -36,7 +37,14 @@ function MapPage() {
     setMap(null)
   }, [])
 
-  return isLoaded ? (
+  return (
+  <div>
+    <div className='sideBar'>
+      <h1>
+        Apartments
+      </h1>
+    </div>
+  <div>{isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -57,7 +65,9 @@ function MapPage() {
 
         />
       </GoogleMap>
-  ) : <></>
+  ) : <></>}
+  </div>
+  </div>)
 }
 
 export default MapPage;
