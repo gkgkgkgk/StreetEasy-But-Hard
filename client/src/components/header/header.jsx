@@ -12,7 +12,6 @@ function Header() {
                 <ul className='navul'>
                     <li className='navli'><Link to="/">Home</Link></li>
                     <li className='navli'><Link to="/map">See the Map</Link></li>
-                    <li className='navli'><Link to="/listing">Search a Listing</Link></li>
                     <li className='navli'><Link to="/about">About</Link></li>
                 </ul>
             </div>
