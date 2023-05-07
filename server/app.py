@@ -1,22 +1,35 @@
+# RUN WITH: python -m flask run
 import flask
+from flask import jsonify
+from flask_cors import CORS
 import pandas as pd
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
+app = flask.Flask(__name__)
+CORS(app)
 df = pd.read_csv('all_years_latlong_NTA2020.csv')
 df.drop('Unnamed: 0', axis=1, inplace=True)
 
-@app.route('/get/<nta>/<address>', methods=['GET'])
-def home(nta, address):
-    if nta == "all":
-        nta = ""
-    if address == "all":
-        address = ""
-        
-    filtered_df = df.loc[(df['NTAName'].str.contains(nta)) & (df['address'].str.contains(address))]
-    #print(filtered_df.head(5))
-    
-    return filtered_df.to_dict(orient='records')
+def _build_cors_preflight_response():
+    response = flask.make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Allow-Methods", "*")
+    return response
+
+# Post request taking in json with fields nta and address to filter csv
+@app.route('/data', methods=['POST', 'OPTIONS'])
+def home():
+    if flask.request.method == "OPTIONS": # CORS preflight
+        return _build_cors_preflight_response()
+    input_json = flask.request.get_json(force=True)
+    filtered_df = df.loc[(df['NTAName'].str.contains(input_json['nta'], case=False)) \
+                          & (df['address'].str.contains(input_json['address'], case=False))]
+    filtered_df = filtered_df.loc[(filtered_df["status"] == "Claim") | (filtered_df['status'] == "Pending")]
+
+    return filtered_df.to_json()
+    # response = jsonify(filtered_df.to_dict(orient='records'))
+    # response.headers.add("Access-Control-Allow-Origin", "*")
 
 if __name__ == "__main__":
     app.run()
+    
