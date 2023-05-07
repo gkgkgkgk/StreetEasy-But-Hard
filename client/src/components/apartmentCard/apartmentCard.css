@@ -1,0 +1,15 @@
+.apartmentCard{
+    display: flex;
+    min-height: 100px;
+    padding: 10px;
+    background-color: grey;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.apartmentCard img {
+    width: 100%;
+    height: 100%;
+}
