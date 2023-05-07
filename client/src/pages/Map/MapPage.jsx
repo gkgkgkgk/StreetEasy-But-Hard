@@ -5,11 +5,13 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './MapPage.css'
+import SideBar from '../../components/sidebar/sidebar';
 
 var SERVER = "http://localhost:5000"
 const containerStyle = {
-  width: '500px',
-  height: '100%'
+  width: '100%',
+  height: '100%',
+  minWidth: '100px'
 };
 
 
@@ -29,7 +31,7 @@ function MapPage() {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "APIKEY"
+    googleMapsApiKey: ""
   })
 
 
@@ -95,13 +97,9 @@ function MapPage() {
   }
 
   return (
-  <div>
-    <div className='sideBar'>
-      <h1>
-        Apartments
-      </h1>
-    </div>
-  <div>{isLoaded ? (
+  <div className='container'>
+    <SideBar></SideBar>
+  <div className='mapContainer'>{isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -111,7 +109,7 @@ function MapPage() {
         initialCenter={{ lat: 40.7128, lng: -74.0060 }}
       >
       </GoogleMap>
-  ) : <></>}
+  ) : <p>Loading...</p>}
   </div>
   </div>)
 }

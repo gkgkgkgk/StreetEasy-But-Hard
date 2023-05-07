@@ -1,0 +1,8 @@
+.sideBar {
+    height: 100%;
+    min-width: 500px;
+    box-shadow: 5px 0px 5px black;
+    z-index: 100;
+    padding: 25px;
+    overflow: scroll;
+}
