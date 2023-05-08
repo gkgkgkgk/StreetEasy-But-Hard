@@ -1,5 +1,15 @@
+import Searchbar from "../../components/searchbar/searchbar";
+import "./homepage.css"
+import { useNavigate } from "react-router-dom";
+
 const HomePage = () => {
-    return <div><h1>Find Your New Apartment Here!</h1></div>;
+    const navigate = useNavigate();
+    const onSelect = (e) => {
+        console.log(e)
+        navigate('/map?loc='+e); // redirect to new page
+    }
+
+    return <div className="homepage"><h1>The hardest way to rent an apartment in NYC!</h1><Searchbar onSelect={onSelect}></Searchbar></div>;
 };
 
 export default HomePage;

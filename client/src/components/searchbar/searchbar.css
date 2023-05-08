@@ -1,0 +1,22 @@
+.searchForm {
+    display: flex;
+    min-width: 100px;
+    width: 100%;
+    max-width: 700px;
+}
+
+
+.searchContainer{
+    max-width: 700px;
+    width: 100%;
+}
+
+.wrapper {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.searchButton {
+    width: 70px;
+    cursor: pointer;
+}

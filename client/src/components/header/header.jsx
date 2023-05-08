@@ -9,11 +9,10 @@ function Header() {
                 <h3>StreetEasy...ButHard</h3>
             </div>
             <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/map">See the Map</Link></li>
-                    <li><Link to="/listing">Search a Listing</Link></li>
-                    <li><Link to="/about">About</Link></li>
+                <ul className='navul'>
+                    <li className='navli'><Link to="/">Home</Link></li>
+                    <li className='navli'><Link to="/map">See the Map</Link></li>
+                    <li className='navli'><Link to="/about">About</Link></li>
                 </ul>
             </div>
         </div>
