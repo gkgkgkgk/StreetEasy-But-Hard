@@ -19,12 +19,12 @@ const center = {
 
 // add example map page
 function MapPage(markers) {
-  // Set up hook
+  // Set up hooks
   const [map, setMap] = React.useState(null);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyBHM4fruUWmgBCv7HxaeRlJ_jI3KHkIhMk"
+    googleMapsApiKey: ""
   })
 
 
