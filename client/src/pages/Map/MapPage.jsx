@@ -21,10 +21,13 @@ const center = {
 function MapPage(markers) {
   // Set up hooks
   const [map, setMap] = React.useState(null);
+  const [selectedElement, setSelectedElement] = React.useState(null);
+  const [activeMarker, setActiveMarker] = React.useState(null);
+  const [showInfoWindow, setInfoWindowFlag] = React.useState(true);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: ""
+    googleMapsApiKey: "AIzaSyCFnrD3a2pKnGyjghJ-d6BoqI_lrsM-UJU"
   })
 
 
@@ -52,7 +55,29 @@ function MapPage(markers) {
           onUnmount={onUnmount}
           initialCenter={{ lat: 40.7128, lng: -74.0060 }}
         >
-        {markers.markers.map(( {lat, long: lng} ) => <MarkerF position={{lat, lng}}/>) }
+        {markers.markers.map(( obj, i ) => 
+          <MarkerF position={{lat: obj.lat, lng: obj.long}} 
+            key={i}
+            title={i}
+            onClick={(props, marker) => {
+              setSelectedElement(obj);
+              setActiveMarker(marker);
+          }}
+          />) }
+        {selectedElement && (
+          <InfoWindowF
+            visible={showInfoWindow}
+            marker={activeMarker}
+            position={{lat: selectedElement.lat, lng: selectedElement.long}}
+            onCloseClick={() => {
+              setSelectedElement(null);
+            }}
+          >
+            <div>
+              <h1>{selectedElement.lat}</h1>
+            </div>
+          </InfoWindowF>
+        )}
         </GoogleMap>
   ) : <p>Loading...</p>}
   </div>
