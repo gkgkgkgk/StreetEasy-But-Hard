@@ -3,6 +3,7 @@ import flask
 from flask import jsonify
 from flask_cors import CORS
 import pandas as pd
+import json
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -26,9 +27,7 @@ def home():
                           & (df['address'].str.contains(input_json['address'], case=False))]
     filtered_df = filtered_df.loc[(filtered_df["status"] == "Claim") | (filtered_df['status'] == "Pending")]
 
-    return filtered_df.to_json()
-    # response = jsonify(filtered_df.to_dict(orient='records'))
-    # response.headers.add("Access-Control-Allow-Origin", "*")
+    return json.loads(filtered_df.to_json(orient='records'))
 
 if __name__ == "__main__":
     app.run()
