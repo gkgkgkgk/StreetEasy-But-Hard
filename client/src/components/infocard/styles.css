@@ -1,0 +1,26 @@
+.background {
+    background-color: #265881;
+    margin: 50px;
+    margin-bottom: 20px;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+
+.text {
+    padding-top: 5px;
+    font-size: 20px;
+    text-align: left;
+}
+.text_intro {
+
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-style: italic;
+    text-align: left;
+}
+
+.link {
+    font-style: italic;
+    font-weight: bold;
+}
