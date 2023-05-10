@@ -9,7 +9,12 @@ const HomePage = () => {
         navigate('/map?loc='+e); // redirect to new page
     }
 
-    return <div className="homepage"><h1>The hardest way to rent an apartment in NYC!</h1><Searchbar onSelect={onSelect}></Searchbar></div>;
+    return  (<div className="homepage">
+                <div className = "home_container">
+                    <h1>The hardest way to rent an apartment in NYC!</h1>
+                    <Searchbar onSelect={onSelect}></Searchbar>
+                </div>
+            </div>);
 };
 
 export default HomePage;
