@@ -27,7 +27,7 @@ function MapPage(markers) {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCFnrD3a2pKnGyjghJ-d6BoqI_lrsM-UJU"
+    googleMapsApiKey: ""
   })
 
 
@@ -74,7 +74,7 @@ function MapPage(markers) {
             }}
           >
             <div>
-              <h1>{selectedElement.lat}</h1>
+              <h1  style={{ color: 'black ' }}>{selectedElement.address}</h1>
             </div>
           </InfoWindowF>
         )}
