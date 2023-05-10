@@ -2,6 +2,7 @@ import React from 'react'
 import { GoogleMap, useJsApiLoader, MarkerF, InfoWindowF } from '@react-google-maps/api';
 import './MapPage.css'
 import SideBar from '../../components/sidebar/sidebar';
+import LargeCard from '../../components/largeCard/largeCard';
 
 var SERVER = "http://localhost:5000"
 const containerStyle = {
@@ -24,10 +25,12 @@ function MapPage(markers) {
   const [selectedElement, setSelectedElement] = React.useState(null);
   const [activeMarker, setActiveMarker] = React.useState(null);
   const [showInfoWindow, setInfoWindowFlag] = React.useState(true);
+  const [modalOpen, setModalOpen] = React.useState(false);
+
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: ""
+    googleMapsApiKey: "AIzaSyB4n08lJ13WaiYiwfF-TW3QZUjHWDVYCfA"
   })
 
 
@@ -40,7 +43,15 @@ function MapPage(markers) {
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
-  }, [])
+  }, [])  
+        
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
+  const openModal = () => {
+    setModalOpen(true);
+  }
 
   
   return (
@@ -81,6 +92,7 @@ function MapPage(markers) {
         </GoogleMap>
   ) : <p>Loading...</p>}
   </div>
+  <LargeCard opened={modalOpen} closeModal={closeModal}></LargeCard>
   </div>)
 }
 
