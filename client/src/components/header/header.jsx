@@ -6,7 +6,7 @@ function Header() {
     return (
         <div className='fixed-header'>
             <div>
-                <h3>StreetEasy...ButHard</h3>
+                <h2>StreetEasy... ButHard</h2>
             </div>
             <div>
                 <ul className='navul'>

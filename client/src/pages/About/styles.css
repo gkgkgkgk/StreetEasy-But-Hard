@@ -1,6 +1,8 @@
 .about {
-    text-align: center;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    background-image: url('../../../oculus-new-york-city-photo-l.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 100%;
 }
