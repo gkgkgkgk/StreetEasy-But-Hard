@@ -1,6 +1,6 @@
 # RUN WITH: python -m flask run
 import flask
-from flask import jsonify
+from flask import jsonify, send_from_directory
 from flask_cors import CORS
 import pandas as pd
 import json
@@ -49,6 +49,10 @@ def home():
     filtered_df = filtered_df[(filtered_df["status"] == "Claim") | (filtered_df['status'] == "Pending")]
 
     return json.loads(filtered_df.to_json(orient='records'))
+
+@app.route('/images/<path:path>')
+def send_image(path):
+    return send_from_directory('aptImages/images', path)
 
 if __name__ == "__main__":
     app.run()

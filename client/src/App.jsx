@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header setNta={setNta}/>
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage setNta={setNta}/>} />
