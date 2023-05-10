@@ -1,8 +1,8 @@
 import "./apartmentCard.css"
 
-const ApartmentCard = () => {
+const ApartmentCard = (props) => {
     return (
-    <div className="apartmentCard">
+    <div className="apartmentCard" onClick={props.openModal}>
         <img src="https://thumbs.cityrealty.com/assets/smart/736x/webp/1/16/1655f4e3904fb79cb987ab7755d2b3f4b8f37f88/1-city-point.jpg"></img>
         <h2>123 1st St.</h2>
     </div>);
