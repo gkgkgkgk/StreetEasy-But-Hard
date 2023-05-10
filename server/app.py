@@ -7,8 +7,29 @@ import json
 
 app = flask.Flask(__name__)
 CORS(app)
+
+# Updated data with lattitude and longitude coordinates
 df = pd.read_csv('all_years_latlong_NTA2020.csv')
 df.drop('Unnamed: 0', axis=1, inplace=True)
+
+# Data with notes to join on
+old_df = pd.read_excel("housing.xlsx", sheet_name=["2022 CityFHEPS", "2021 (Post Lawsuit)", "2021 (Pre Lawsuit)", "2019 + 2020 (Pre Lawsuit)"])
+
+# Combine old data
+old_dfs = []
+for key in old_df.keys():
+    old_dfs.append(old_df[key][["address", "Notes"]])
+old_df = pd.concat(old_dfs)
+
+# Get first 4 words in each address (lowercase so we can match them)
+old_df["address"] = old_df["address"].str.lower()
+old_df["address"] = old_df["address"].str.split().str[:4].str.join(" ")
+df["address"] = df["address"].str.lower()
+df["address"] = df["address"].str.split().str[:4].str.join(" ")
+
+# Merge dataframes and filter
+df = df.merge(old_df, on="address")
+
 
 def _build_cors_preflight_response():
     response = flask.make_response()
@@ -23,9 +44,10 @@ def home():
     if flask.request.method == "OPTIONS": # CORS preflight
         return _build_cors_preflight_response()
     input_json = flask.request.get_json(force=True)
+
     filtered_df = df.loc[(df['NTAName'].str.contains(input_json['nta'], case=False)) \
-                          & (df['address'].str.contains(input_json['address'], case=False))]
-    filtered_df = filtered_df.loc[(filtered_df["status"] == "Claim") | (filtered_df['status'] == "Pending")]
+                        & (df['address'].str.contains(input_json['address'], case=False))]
+    filtered_df = df[(df["status"] == "Claim") | (df['status'] == "Pending")]
 
     return json.loads(filtered_df.to_json(orient='records'))
 
