@@ -55,7 +55,7 @@ function MapPage(props) {
   
   return (
   <div className='container'>
-    <SideBar></SideBar>
+    <SideBar setNta={props.setNta}></SideBar>
       <div className='mapContainer' style={{ height: '100vh', width: '100%' }}>{isLoaded ? (
         <GoogleMap
           mapContainerStyle={containerStyle}
