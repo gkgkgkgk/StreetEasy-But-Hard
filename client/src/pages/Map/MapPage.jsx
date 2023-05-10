@@ -19,7 +19,7 @@ const center = {
 
 
 // add example map page
-function MapPage(markers) {
+function MapPage(props) {
   // Set up hooks
   const [map, setMap] = React.useState(null);
   const [selectedElement, setSelectedElement] = React.useState(null);
@@ -30,7 +30,7 @@ function MapPage(markers) {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyB4n08lJ13WaiYiwfF-TW3QZUjHWDVYCfA"
+    googleMapsApiKey: ""
   })
 
 
@@ -52,7 +52,6 @@ function MapPage(markers) {
   const openModal = () => {
     setModalOpen(true);
   }
-
   
   return (
   <div className='container'>
@@ -66,7 +65,7 @@ function MapPage(markers) {
           onUnmount={onUnmount}
           initialCenter={{ lat: 40.7128, lng: -74.0060 }}
         >
-        {markers.markers.map(( obj, i ) => 
+        {props.markers.map(( obj, i ) => 
           <MarkerF position={{lat: obj.lat, lng: obj.long}} 
             key={i}
             title={i}

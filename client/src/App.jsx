@@ -11,22 +11,26 @@ import './App.css'
 
 function App() {
   const SERVER = "http://localhost:5000"
+  const urlParams = new URLSearchParams(window.location.search);
 
   const [addrs, setAddrs] = useState([]);
-  const [nta, setNta] = useState('');
+  const [nta, setNta] = useState(urlParams.get('loc'));
   const [address, setAddress] = useState('');
   
+
   // get addresses from backend via get request
   useEffect(() => {
+    console.log(nta);
     const requestOptions = {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({nta, address })
+      body: JSON.stringify({nta:'MN0303', address })
     };
     fetch(SERVER + '/data', requestOptions)
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       setAddrs(data);
     });
   }, []);
@@ -38,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/map" element={<MapPage markers={addrs}/>} />
+          <Route path="/map" element={<MapPage setNta={setNta} markers={addrs}/>} />
         </Routes>
       </div>
     </BrowserRouter>
