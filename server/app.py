@@ -44,10 +44,9 @@ def home():
     if flask.request.method == "OPTIONS": # CORS preflight
         return _build_cors_preflight_response()
     input_json = flask.request.get_json(force=True)
-
-    filtered_df = df.loc[(df['NTAName'].str.contains(input_json['nta'], case=False)) \
-                        & (df['address'].str.contains(input_json['address'], case=False))]
-    filtered_df = df[(df["status"] == "Claim") | (df['status'] == "Pending")]
+    print(input_json['nta'])
+    filtered_df = df.loc[(df['NTA2020'] == input_json['nta'])]
+    filtered_df = filtered_df[(filtered_df["status"] == "Claim") | (filtered_df['status'] == "Pending")]
 
     return json.loads(filtered_df.to_json(orient='records'))
 
