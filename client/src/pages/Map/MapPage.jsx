@@ -12,14 +12,16 @@ const containerStyle = {
 };
 
 
-const center = {
-  lat: 40.7831,
-  lng: -73.9712
-};
 
 
 // add example map page
 function MapPage(props) {
+  let center = {
+    lat: 40.7831,
+    lng: -73.9712
+  };
+  
+
   // Set up hooks
   const [map, setMap] = React.useState(null);
   const [selectedElement, setSelectedElement] = React.useState(null);
@@ -35,7 +37,12 @@ function MapPage(props) {
 
 
   const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    let totalLat = 0
+    let totalLng = 0
+    props.markers.map(( obj, i ) => totalLat+=obj.lat);
+    props.markers.map(( obj, i ) => totalLng+=obj.long);
+    center.lat = totalLat / props.markers.length;
+    center.lng = totalLng / props.markers.length;
     const bounds = new window.google.maps.LatLngBounds(center);
     map.setZoom(14)
     setMap(map)
