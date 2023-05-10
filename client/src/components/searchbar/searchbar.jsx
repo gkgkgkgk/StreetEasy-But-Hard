@@ -2,31 +2,10 @@ import React, { useState } from 'react';
 import './searchbar.css';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import SearchIcon from "@mui/icons-material/Search";
+import ntaCodes from '../ntaCodes';
+import { useNavigate } from "react-router-dom";
 
 function Searchbar(props) {
-    const items = [
-        {
-          id: 0,
-          name: 'East Village'
-        },
-        {
-          id: 1,
-          name: 'Upper West Side'
-        },
-        {
-          id: 2,
-          name: 'West Village'
-        },
-        {
-          id: 3,
-          name: 'Point Slope'
-        },
-        {
-          id: 4,
-          name: 'Harlem'
-        }
-      ]
-
     const formatResult = (item) => {
         return (
           <>
@@ -35,16 +14,36 @@ function Searchbar(props) {
         )
       }
 
+    function getNTACode(name) {
+      for (const code in ntaCodes) {
+        if (ntaCodes[code] === name) {
+          return code;
+        }
+      }
+      return name; // Return null if name not found
+    }
+
+    const navigate = useNavigate();
+    const onSelectNta = (e) => {
+        navigate('/map?loc='+e); // redirect to new page
+    }
+
     const handleSubmit = (event) => {
       event.preventDefault();
-      props.onSelect(event.target[0].value)
+      let nta = getNTACode(event.target[0].value);
+      props.setNta(nta);
+      onSelectNta(nta);
     };
+
+
+
+    console.log(Object.entries(ntaCodes).map(([code, name]) => ({ code, name })))
 
     return (
       <form className="searchForm" onSubmit={handleSubmit}>
         <div className="searchContainer">
         <ReactSearchAutocomplete
-            items={items}
+            items={Object.entries(ntaCodes).map(([code, name]) => ({ code, name }))}
             onSearch={props.handleOnSearch}
             placeholder='Enter a neighborhood or address here...'
             styling={{fontSize:'24px', height: "70px", borderRadius: "0px, 0px, 0px, 0px"}}
