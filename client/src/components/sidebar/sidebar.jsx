@@ -6,7 +6,7 @@ const SideBar = (props) => {
     let apartments = [1, 2, 3, 4, 5];
 
     return (<div className='sideBar'>
-    <Searchbar>
+    <Searchbar setNta={props.setNta}>
     </Searchbar>
     <hr/>
     {apartments.map(i => <ApartmentCard openModal={props.openModal}></ApartmentCard>)}
