@@ -6,6 +6,7 @@ import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './MapPage.css'
 import SideBar from '../../components/sidebar/sidebar';
+import LargeCard from '../../components/largeCard/largeCard';
 
 var SERVER = "http://localhost:5000"
 const containerStyle = {
@@ -27,11 +28,12 @@ function MapPage() {
   // Set up hooks
   const [addrs, setAddrs] = React.useState(new Set());
   const [latlng, setLatLng] = React.useState(new Set());
+  const [modalOpen, setModalOpen] = React.useState(false);
 
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: ""
+    googleMapsApiKey: "AIzaSyB4n08lJ13WaiYiwfF-TW3QZUjHWDVYCfA"
   })
 
 
@@ -96,9 +98,17 @@ function MapPage() {
     }
   }
 
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
+  const openModal = () => {
+    setModalOpen(true);
+  }
+
   return (
   <div className='container'>
-    <SideBar></SideBar>
+    <SideBar openModal={openModal}></SideBar>
   <div className='mapContainer'>{isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -111,6 +121,7 @@ function MapPage() {
       </GoogleMap>
   ) : <p>Loading...</p>}
   </div>
+  <LargeCard opened={modalOpen} closeModal={closeModal}></LargeCard>
   </div>)
 }
 
