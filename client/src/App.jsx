@@ -18,7 +18,6 @@ const App = () => {
   const [nta, setNta] = useState(urlParams.get('loc') ? urlParams.get('loc') : '');
   // get addresses from backend via get request
   useEffect(() => {
-    console.log(nta)
 
     const requestOptions = {
       method: 'POST',
@@ -29,8 +28,6 @@ const App = () => {
     fetch(SERVER + '/data', requestOptions)
     .then(response => response.json())
     .then(data => {
-      console.log(nta)
-      console.log(data)
       setAddrs(data);
     });
   }, [nta]);
