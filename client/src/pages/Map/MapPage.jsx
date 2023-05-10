@@ -26,6 +26,7 @@ function MapPage(props) {
   const [activeMarker, setActiveMarker] = React.useState(null);
   const [showInfoWindow, setInfoWindowFlag] = React.useState(true);
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [sideBarSelected, setSideBarSelected] = React.useState(null);
 
 
   const { isLoaded } = useJsApiLoader({
@@ -49,13 +50,11 @@ function MapPage(props) {
     setModalOpen(false);
   }
 
-  const openModal = () => {
-    setModalOpen(true);
-  }
+  let selectedLocation = {};
   
   return (
   <div className='container'>
-    <SideBar openModal={openModal} setNta={props.setNta}></SideBar>
+    <SideBar openModal={setModalOpen} setSelected={setSideBarSelected} setNta={props.setNta} locations={props.markers}></SideBar>
       <div className='mapContainer' style={{ height: '100vh', width: '100%' }}>{isLoaded ? (
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -91,7 +90,7 @@ function MapPage(props) {
         </GoogleMap>
   ) : <p>Loading...</p>}
   </div>
-  <LargeCard opened={modalOpen} closeModal={closeModal}></LargeCard>
+  <LargeCard location={sideBarSelected} opened={modalOpen} closeModal={closeModal}></LargeCard>
   </div>)
 }
 
