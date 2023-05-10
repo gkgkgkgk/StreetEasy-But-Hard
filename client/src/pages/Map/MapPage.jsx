@@ -68,13 +68,13 @@ function MapPage(markers) {
           <InfoWindowF
             visible={showInfoWindow}
             marker={activeMarker}
-            position={{lat: selectedElement.lat, lng: selectedElement.long}}
+            position={{lat: selectedElement.lat + 0.0015, lng: selectedElement.long}}
             onCloseClick={() => {
               setSelectedElement(null);
             }}
           >
             <div>
-              <h1  style={{ color: 'black ' }}>{selectedElement.address}</h1>
+              <h1  style={{ color: 'black ' }}>{selectedElement.Notes}</h1>
             </div>
           </InfoWindowF>
         )}
