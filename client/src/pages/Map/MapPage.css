@@ -9,7 +9,16 @@
     width: 100%;
 }
 
-.moreBtn{
-    display: center
+.cont{
+    display: flex;
+}
 
+h2, h1{
+    text-align: center;
+   
+}
+
+.morebtn{
+    margin: 0 auto;
+    display: block
 }

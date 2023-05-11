@@ -9,17 +9,18 @@ function Info(props) {
         <div className='infoWindow'>
             <h1  style={{ color: 'black ' }}>{props.element.address.toUpperCase()}</h1>
             <h2  style={{ color: 'red ' }}>You likely can't use a voucher here...</h2>
-            {/* <p  style={{ color: 'black ' }}>{props.element.Notes}</p> */}
+            <h3  style={{ color: 'black', justifyContent: 'center'}}>Notes from HRI:</h3>
             <p style={{color: 'black'}}>
-                {showMore ? props.element.Notes : `${props.element.Notes.substring(0, 100)}`}
+                {showMore ? props.element.Notes : `${props.element.Notes.split(" ", 25).join(' ') + "..."}`}
             </p>
-            {props.element.Notes.length >= 100 ?
-                
-                <button className="moreBtn" onClick={() => setShowMore(!showMore)}>
+            <div className='cont'>
+                {props.element.Notes.split(" ").length > 25 ?
+                <button className="morebtn" onClick={() => setShowMore(!showMore)}>
                     {showMore ? "Show less" : "Show more"}
                 </button>
                 : null
-            }
+                }
+            </div>
         </div>
     )
 }
