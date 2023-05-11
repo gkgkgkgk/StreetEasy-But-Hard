@@ -25,7 +25,7 @@ const App = () => {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({nta, address })
+      body: JSON.stringify({nta, address, "key": "testkeycooper"})
     };
     fetch(SERVER + '/data', requestOptions)
     .then(response => response.json())
