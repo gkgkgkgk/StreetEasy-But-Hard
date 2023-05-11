@@ -6,12 +6,12 @@ function Authors() {
         <div className = "authors_title">
         <h1>Meet the Creators</h1>
         <div id="container_creators">
-            <div className = "item"><img src="../../../husam.png" />Husam Almanakly</div>
-            <div className = "item"><img src="../../../ayden.png" />Ayden Shankman</div>
-            <div className = "item"><img src="../../../gavri.jpg" />Gavri Kepets</div>
-            <div className = "item"><img src="../../../michael.png" />Michael Bentivegna</div>
-            <div className = "item"><img src="../../../background_city.png" />Melina Tsai</div>
-            <div className = "item"><img src="../../../background_city.png" />Cesar Rodriguez</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/husam.png" />Husam Almanakly</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/ayden.png" />Ayden Shankman</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/gavri.jpg" />Gavri Kepets</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/michael.png" />Michael Bentivegna</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/background_city.png" />Melina Tsai</div>
+            <div className = "item"><img src="https://raw.githubusercontent.com/gkgkgkgk/StreetEasy-But-Hard/main/client/background_city.png" />Cesar Rodriguez</div>
         </div>
         </div>
     );
