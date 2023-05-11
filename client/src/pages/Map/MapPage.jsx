@@ -33,7 +33,7 @@ function MapPage(props) {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [sideBarSelected, setSideBarSelected] = React.useState(null);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.RAILS_ENV.VITE_APP_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_APP_MAPS_API_KEY,
   });
 
   // const center = useMemo(() => ({ lat: 40.7831, lng: -73.9712 }), []);
