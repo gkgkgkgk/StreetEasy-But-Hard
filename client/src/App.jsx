@@ -4,7 +4,6 @@ import Header from './components/header/header.jsx'
 import AboutPage from './pages/About/AboutPage'
 import MapPage from './pages/Map/MapPage'
 import HomePage from './pages/Home/HomePage.jsx';
-import ntaCodes from './components/ntaCodes.jsx'
 import './App.css'
 
 
