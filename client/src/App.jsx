@@ -10,6 +10,7 @@ import './App.css'
 
 const App = () => {
   const urlParams = new URLSearchParams(window.location.search);
+  let url = process.env.RAILS_ENV.VITE_APP_SERVER + '/data';
 
   const [addrs, setAddrs] = useState([]);
   const [center, setCenter] = useState([40.7831, -73.9712]);
@@ -18,7 +19,6 @@ const App = () => {
   const [nta, setNta] = useState(urlParams.get('loc') ? urlParams.get('loc') : '');
   // get addresses from backend via get request
   useEffect(() => {
-    let url = process.env.RAILS_ENV.VITE_APP_SERVER + '/data';
     console.log(url);
     const requestOptions = {
       method: 'POST',
