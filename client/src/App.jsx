@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from './components/header/header.jsx'
 import AboutPage from './pages/About/AboutPage'
 import MapPage from './pages/Map/MapPage'
@@ -40,7 +40,7 @@ const App = () => {
   }, [nta]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header setNta={setNta}/>
       <div className="App">
         <Routes>
@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/map" element={<MapPage setNta={setNta} markers={addrs} center={center}/>} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
