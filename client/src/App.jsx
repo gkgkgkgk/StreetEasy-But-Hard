@@ -10,7 +10,7 @@ import './App.css'
 
 
 const App = () => {
-  const SERVER = import.meta.env.VITE_APP_SERVER
+  const SERVER = process.env.RAILS_ENV.VITE_APP_SERVER
   const urlParams = new URLSearchParams(window.location.search);
 
   const [addrs, setAddrs] = useState([]);
