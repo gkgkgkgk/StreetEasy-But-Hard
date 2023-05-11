@@ -9,9 +9,9 @@ import './App.css'
 
 
 const App = () => {
-  console.log(process.env)
+  console.log(import.meta.env)
   const urlParams = new URLSearchParams(window.location.search);
-  let url = process.env.RAILS_ENV.VITE_APP_SERVER + '/data';
+  let url = import.meta.env.RAILS_ENV.VITE_APP_SERVER + '/data';
 
   const [addrs, setAddrs] = useState([]);
   const [center, setCenter] = useState([40.7831, -73.9712]);
