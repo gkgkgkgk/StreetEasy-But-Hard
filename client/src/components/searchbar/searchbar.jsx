@@ -25,7 +25,6 @@ function Searchbar(props) {
 
     const navigate = useNavigate();
     const onSelectNta = (e) => {
-        console.log(e)
         navigate('/map?loc='+e); // redirect to new page
     }
 
