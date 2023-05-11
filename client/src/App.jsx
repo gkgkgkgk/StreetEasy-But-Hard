@@ -9,6 +9,7 @@ import './App.css'
 
 
 const App = () => {
+  console.log(process.env)
   const urlParams = new URLSearchParams(window.location.search);
   let url = process.env.RAILS_ENV.VITE_APP_SERVER + '/data';
 
