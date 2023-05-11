@@ -49,8 +49,6 @@ function MapPage(props) {
   const closeModal = () => {
     setModalOpen(false);
   }
-
-  let selectedLocation = {};
   
   return (
   <div className='container'>
@@ -84,6 +82,11 @@ function MapPage(props) {
           >
             <div>
               <h1  style={{ color: 'black ' }}>{selectedElement.Notes}</h1>
+              <p style={{ color: 'blue', cursor: 'pointer', width: 'fit-content' }} onClick={() => {
+                console.log(selectedElement)
+                setModalOpen(true)
+                setSideBarSelected(selectedElement)}}
+              >See more here...</p>
             </div>
           </InfoWindowF>
         )}

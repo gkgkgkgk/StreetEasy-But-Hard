@@ -9,7 +9,7 @@ const SideBar = (props) => {
     <Searchbar setNta={props.setNta}>
     </Searchbar>
     <hr/>
-    {props.locations.slice(0, 10).map(i => { return (<ApartmentCard location={i} openModal={props.openModal} setSelected={props.setSelected}></ApartmentCard>)})}
+    {props.locations.slice(0, 50).map(i => { return (<ApartmentCard location={i} openModal={props.openModal} setSelected={props.setSelected}></ApartmentCard>)})}
   </div>);
 };
 
