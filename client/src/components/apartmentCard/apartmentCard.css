@@ -2,12 +2,13 @@
     display: flex;
     min-height: 100px;
     padding: 10px;
-    background-color: grey;
+    background-color: white;
     border-radius: 5px;
     flex-direction: column;
     align-items: center;
     margin: 10px;
     cursor: pointer;
+    color: black;
 }
 
 .apartmentCard img {
