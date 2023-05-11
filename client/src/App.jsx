@@ -9,7 +9,6 @@ import './App.css'
 
 
 const App = () => {
-  const SERVER = process.env.RAILS_ENV.VITE_APP_SERVER
   const urlParams = new URLSearchParams(window.location.search);
 
   const [addrs, setAddrs] = useState([]);
@@ -26,7 +25,7 @@ const App = () => {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify({nta, address, "key": "testkeycooper"})
     };
-    fetch(SERVER + '/data', requestOptions)
+    fetch(process.env.RAILS_ENV.VITE_APP_SERVER + '/data', requestOptions)
     .then(response => response.json())
     .then(data => {
       let totalLat = 0
