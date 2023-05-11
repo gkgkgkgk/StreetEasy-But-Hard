@@ -13,8 +13,9 @@ const LargeCard = (props) => {
             <CloseIcon className='closeButton' onClick={() => props.closeModal()}></CloseIcon>
             </div>
             <img src={SERVER + "/images/" + props.location.lat +"_"+props.location.long + ".jpeg"}></img>
-            <p>{props.location.Notes}</p>
-            <p style={{fontWeight: '700'}}>Status: {props.location.status}</p>
+            <p style={{fontWeight: '700', marginBottom: "0px"}}>Notes from HRI: </p>
+            <p style={{marginTop: "0px"}}>{props.location.Notes}</p>
+            <p style={{textAlign:'center', fontWeight: '700', color:"red", fontSize:"30px"}}>You likely can't use a voucher here...</p>
         </div></div>) : <></>
     );
 }
