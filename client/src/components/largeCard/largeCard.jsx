@@ -3,7 +3,7 @@ import "./largeCard.css"
 import CloseIcon from '@mui/icons-material/Close';
 
 const LargeCard = (props) => {
-    let SERVER = "http://localhost:5000/"
+    let SERVER = import.meta.env.VITE_APP_SERVER
     console.log(props.location)
     return (
         props.opened ?

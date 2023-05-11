@@ -7,7 +7,7 @@ import LargeCard from '../../components/largeCard/largeCard';
 import Info from './Info';
 import cancel from './cancel.png';
 
-var SERVER = "http://localhost:5000"
+
 const containerStyle = {
   width: '100%',
   height: '100%',
@@ -32,9 +32,8 @@ function MapPage(props) {
   const [showInfoWindow, setInfoWindowFlag] = React.useState(true);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [sideBarSelected, setSideBarSelected] = React.useState(null);
-
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "",
+    googleMapsApiKey: import.meta.env.VITE_APP_MAPS_API_KEY,
   });
 
   // const center = useMemo(() => ({ lat: 40.7831, lng: -73.9712 }), []);

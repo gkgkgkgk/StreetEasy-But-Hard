@@ -2,7 +2,7 @@ import "./apartmentCard.css"
 import { useState, useEffect } from 'react'
 
 const ApartmentCard = (props) => {
-    const SERVER = "http://localhost:5000"
+    const SERVER = import.meta.env.VITE_APP_SERVER
 
     const openModal = () => {
         props.openModal(true)
