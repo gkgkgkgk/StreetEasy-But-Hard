@@ -18,14 +18,15 @@ const App = () => {
   const [nta, setNta] = useState(urlParams.get('loc') ? urlParams.get('loc') : '');
   // get addresses from backend via get request
   useEffect(() => {
-
+    let url = process.env.RAILS_ENV.VITE_APP_SERVER + '/data';
+    console.log(url);
     const requestOptions = {
       method: 'POST',
       mode: 'cors',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify({nta, address, "key": "testkeycooper"})
     };
-    fetch(process.env.RAILS_ENV.VITE_APP_SERVER + '/data', requestOptions)
+    fetch(url, requestOptions)
     .then(response => response.json())
     .then(data => {
       let totalLat = 0
