@@ -5,8 +5,8 @@ import { Outlet, Link } from "react-router-dom";
 function Header(props) {
     return (
         <div className='fixed-header'>
-            <div>
-                <h2>StreetEasy... ButHard</h2>
+            <div style={{height:"100%", width: "200px", marginTop: "10px"}}>
+                <img style={{filter: "invert(100%)"}} src="../../../streethard.svg" alt="test"></img>
             </div>
             <div>
                 <ul className='navul'>
