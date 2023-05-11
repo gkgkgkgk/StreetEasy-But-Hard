@@ -36,9 +36,6 @@ function Searchbar(props) {
     };
 
 
-
-    console.log(Object.entries(ntaCodes).map(([code, name]) => ({ code, name })))
-
     return (
       <form className="searchForm" onSubmit={handleSubmit}>
         <div className="searchContainer">

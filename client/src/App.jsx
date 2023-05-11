@@ -9,7 +9,6 @@ import './App.css'
 
 
 const App = () => {
-  console.log(import.meta.env)
   const urlParams = new URLSearchParams(window.location.search);
   let url = import.meta.env.VITE_APP_SERVER + '/data';
 
@@ -20,7 +19,6 @@ const App = () => {
   const [nta, setNta] = useState(urlParams.get('loc') ? urlParams.get('loc') : '');
   // get addresses from backend via get request
   useEffect(() => {
-    console.log(url);
     const requestOptions = {
       method: 'POST',
       mode: 'cors',

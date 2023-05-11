@@ -4,7 +4,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const LargeCard = (props) => {
     let SERVER = import.meta.env.VITE_APP_SERVER
-    console.log(props.location)
     return (
         props.opened ?
         (<div className='largeCardContainer' onClick={() => props.closeModal()}><div className='largeCard'>
