@@ -30,7 +30,7 @@ function MissionStatement() {
 function HelpStatement() {
     return (
         <div>
-            <p className = "text">The purpose of this application is to spread the word about the prevalence of housing voucher discrimination across New York City.  It is our goal that you walk away from this exhibit with an understanding of how widespread the issue is accross different neighborhoods within the 5 boroughs.  If you would like to make your voice heard, email your representative and make sure that your vote at the election goes for someone that is willing to take housing discrimination seriously.  The laws are already in place, but enforcement is the key to ending this discriminatory practice.</p>
+            <p className = "text">The purpose of this application is to spread the word about the prevalence of housing voucher discrimination across New York City.  It is our goal that you walk away from this exhibit with an understanding of how widespread the issue is accross different neighborhoods within the 5 boroughs.  If you would like to make your voice heard, email your representative and make sure that your vote at the next election goes for someone that is willing to take housing discrimination seriously.  The laws are already in place, but enforcement is the key to ending this discriminatory practice.</p>
         </div>
     )
 }

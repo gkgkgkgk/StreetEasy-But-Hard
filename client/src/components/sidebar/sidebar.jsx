@@ -4,12 +4,12 @@ import "./sidebar.css"
 
 const SideBar = (props) => {
     let apartments = [1, 2, 3, 4, 5];
-
+  console.log(props)
     return (<div className='sideBar'>
     <Searchbar setNta={props.setNta}>
     </Searchbar>
     <hr/>
-    {apartments.map(i => <ApartmentCard openModal={props.openModal}></ApartmentCard>)}
+    {props.locations.slice(0, 10).map(i => { return (<ApartmentCard location={i} openModal={props.openModal} setSelected={props.setSelected}></ApartmentCard>)})}
   </div>);
 };
 
