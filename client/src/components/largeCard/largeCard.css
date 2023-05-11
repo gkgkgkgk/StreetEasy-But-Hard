@@ -9,9 +9,8 @@
 }
 
 .largeCardContainer img{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    height: 50%;
+    width: auto;
 }
 
 
@@ -25,11 +24,14 @@
     flex-direction: column;
     padding: 10px;
     color: black;
+    overflow: scroll;
+    align-items: center;
 }
 
 .largeCardHeader {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .closeButton {
