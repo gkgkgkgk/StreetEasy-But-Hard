@@ -10,7 +10,7 @@ function Info(props) {
             <h1  style={{ color: 'black ' }}>{props.element.address.toUpperCase()}</h1>
             <h2  style={{ color: 'red ' }}>You likely can't use a voucher here...</h2>
             <h3  style={{ color: 'black', justifyContent: 'center'}}>Notes from HRI:</h3>
-            <p style={{color: 'black'}}>
+            <p style={{color: 'black', lineHeight: '1.5', fontSize: '15px'}}>
                 {showMore || props.element.Notes.split(" ").length < 25? props.element.Notes : `${props.element.Notes.split(" ", 25).join(' ') + "..."}`}
             </p>
             <div className='cont'>
